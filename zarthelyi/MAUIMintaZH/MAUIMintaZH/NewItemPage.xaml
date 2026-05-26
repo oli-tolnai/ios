@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIMintaZH.NewItemPage"
+             Title="New Shopping List Item">
+    <VerticalStackLayout>
+        <Label Text="Name"/>
+        <Entry Text="{Binding Name}"/>
+        <Label Text="Description"/>
+        <Entry Text="{Binding Description}"/>
+        <Label Text="Quantity"/>
+        <Entry Text="{Binding Quantity}"/>
+        <Label Text="Image"/>
+        <Button Text="Select image" Clicked="Button_Clicked_1" Margin="5"/>
+        <Image Source="{Binding ImageURL}" WidthRequest="200"/>
+        <Button Text="Save" Clicked="Button_Clicked_1" Margin="5"/>
+    </VerticalStackLayout>
+</ContentPage>

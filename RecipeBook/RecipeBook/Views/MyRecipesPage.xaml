@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecipeBook.Views.MyRecipesPage"
+             x:Name="MyRecipesPageRoot"
+             Title="Saját receptek">
+    <Grid Padding="16" RowDefinitions="Auto,*,Auto">
+        <Button Grid.Row="0"
+                HorizontalOptions="End"
+                Text="+ Új recept"
+                Command="{Binding NavigateToEditCommand}" />
+
+        <CollectionView Grid.Row="1" SelectionMode="None" ItemsSource="{Binding MyRecipes}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="0,6" Padding="10" BackgroundColor="White" BorderColor="#E0E0E0">
+                        <Grid ColumnDefinitions="70,*" RowDefinitions="Auto,Auto" ColumnSpacing="10" RowSpacing="8">
+                            <Image Grid.Column="0"
+                                   WidthRequest="60"
+                                   HeightRequest="60"
+                                   Aspect="AspectFill"
+                                   Source="{Binding PhotoPath}" />
+                            <VerticalStackLayout Grid.Column="1" Grid.Row="0" Spacing="2">
+                                <Label Text="{Binding Name}" FontAttributes="Bold" LineBreakMode="TailTruncation" MaxLines="1" />
+                                <Label Text="{Binding CreatedAt, StringFormat='Létrehozva: {0:yyyy.MM.dd}'}" FontSize="12" TextColor="Gray" />
+                            </VerticalStackLayout>
+                            <HorizontalStackLayout Grid.Column="1" Grid.Row="1" Spacing="6">
+                                <Button Text="Megnyit"
+                                        FontSize="11"
+                                        Padding="10,6"
+                                        MinimumHeightRequest="34"
+                                        Command="{Binding BindingContext.NavigateToDetailCommand, Source={x:Reference MyRecipesPageRoot}}"
+                                        CommandParameter="{Binding .}" />
+                                <Button Text="Szerk."
+                                        FontSize="11"
+                                        Padding="10,6"
+                                        MinimumHeightRequest="34"
+                                        Command="{Binding BindingContext.NavigateToEditCommand, Source={x:Reference MyRecipesPageRoot}}"
+                                        CommandParameter="{Binding .}" />
+                                <Button Text="Törlés"
+                                        FontSize="11"
+                                        Padding="10,6"
+                                        MinimumHeightRequest="34"
+                                        Command="{Binding BindingContext.DeleteRecipeCommand, Source={x:Reference MyRecipesPageRoot}}"
+                                        CommandParameter="{Binding .}" />
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label Grid.Row="2"
+               HorizontalOptions="Center"
+               Text="Még nincs saját recepted."
+               IsVisible="{Binding IsEmpty}" />
+    </Grid>
+</ContentPage>

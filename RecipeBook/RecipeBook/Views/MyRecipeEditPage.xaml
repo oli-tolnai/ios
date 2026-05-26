@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecipeBook.Views.MyRecipeEditPage"
+             Title="Recept szerkesztése">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Button Text="Fotó készítése" Command="{Binding TakePhotoCommand}" />
+            <Button Text="Kép kiválasztása" Command="{Binding PickPhotoCommand}" />
+
+            <Image Source="{Binding PhotoPath}" HeightRequest="180" Aspect="AspectFill" IsVisible="{Binding HasPhoto}" />
+
+            <Label Text="Név *" />
+            <Entry Text="{Binding Name}" Placeholder="Recept neve" />
+
+            <Label Text="Hozzávalók" />
+            <Editor Text="{Binding Ingredients}" AutoSize="TextChanges" Placeholder="Pl. 2 tojás..." />
+
+            <Label Text="Elkészítés" />
+            <Editor Text="{Binding Instructions}" AutoSize="TextChanges" Placeholder="Lépések..." />
+
+            <Label Text="{Binding ValidationError}" TextColor="Red" IsVisible="{Binding HasValidationError}" />
+
+            <HorizontalStackLayout Spacing="8">
+                <Button Text="Mégse" Command="{Binding CancelCommand}" />
+                <Button Text="Mentés" Command="{Binding SaveCommand}" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
