@@ -1,0 +1,91 @@
+# Build output
+bin/
+obj/
+Debug/
+Release/
+x64/
+x86/
+ARM/
+ARM64/
+publish/
+
+# Visual Studio
+.vs/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.VC.opendb
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# .NET / NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.assets.json
+*.nuget.g.props
+*.nuget.g.targets
+*.nuget.cache
+
+# MAUI / Xamarin generated files
+*.apk
+*.aab
+*.ipa
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+*.apks
+*.dex
+*.pdb
+*.mdb
+*.dll
+*.exe
+*.so
+*.dylib
+
+# Android signing / local machine secrets
+*.keystore
+*.jks
+key.properties
+
+# Windows app packages
+AppPackages/
+BundleArtifacts/
+Package.StoreAssociation.xml
+
+# Test and coverage output
+TestResults/
+coverage/
+coverage.*
+*.coverage
+*.coveragexml
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+*.cache
+*.bak
+*.swp
+*.swo
+Thumbs.db
+Desktop.ini
+
+# Local archives
+*.zip
+*.rar
+*.7z
